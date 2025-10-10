@@ -1,0 +1,9 @@
+@custom-variant now (&:is([data-now]));
+@custom-variant today (&:is([data-today], [aria-current="date"]));
+
+@custom-variant unavailable (&:is([data-unavailable]));
+@custom-variant range-start (&:is([data-range-start]));
+@custom-variant range-end (&:is([data-range-end]));
+
+@custom-variant complete (&:is([data-complete], [data-completed="true"]));
+@custom-variant incomplete (&:is([data-incomplete], [data-completed="false"]));

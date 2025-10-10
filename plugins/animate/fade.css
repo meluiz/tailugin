@@ -1,0 +1,9 @@
+@utility fade-in-* {
+  --tw-enter-opacity: calc(--value(integer) * 1%);
+  --tw-enter-opacity: --value(--fade-in-*, [percentage]);
+}
+
+@utility fade-out-* {
+  --tw-leave-opacity: calc(--value(integer) * 1%);
+  --tw-leave-opacity: --value(--fade-out-*, [percentage]);
+}

@@ -1,0 +1,19 @@
+@utility spin-in-* {
+  --tw-enter-rotate: calc(--value(integer) * 1deg);
+  --tw-enter-rotate: --value(--spin-in-*, [angle]);
+}
+
+@utility -spin-in-* {
+  --tw-enter-rotate: calc(--value(integer) * -1deg);
+  --tw-enter-rotate: --value(--spin-in-*, [angle]);
+}
+
+@utility spin-out-* {
+  --tw-leave-rotate: calc(--value(integer) * 1deg);
+  --tw-leave-rotate: --value(--spin-out-*, [angle]);
+}
+
+@utility -spin-out-* {
+  --tw-leave-rotate: calc(--value(integer) * -1deg);
+  --tw-leave-rotate: calc(--value(--spin-out-*, [angle]) * -1);
+}

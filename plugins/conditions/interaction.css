@@ -1,0 +1,11 @@
+@custom-variant placeholder-shown (&:is(:placeholder-shown, [data-placeholder-shown]));
+
+@custom-variant active (&:is(:active, [data-active], [data-active="true"]));
+@custom-variant disabled (&:is(:disabled, [data-disabled], [data-disabled="true"], [aria-disabled="true"]));
+
+@custom-variant focus (&:is(:focus, [data-focus], [data-focus="true"]));
+@custom-variant focus-visible (&:is(:focus-visible, [data-focus-visible], [data-focus-visible="true"]));
+
+@custom-variant dragging (&:is([data-dragging], [aria-grabbed="true"]));
+@custom-variant loading (&:is([data-loading], [data-loading="true"], [aria-busy="true"]));
+@custom-variant fullscreen (&:is(:fullscreen, [data-fullscreen], [data-fullscreen="true"]));

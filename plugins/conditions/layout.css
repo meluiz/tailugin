@@ -1,0 +1,3 @@
+@custom-variant horizontal (&:is([data-orientation="horizontal"], [aria-orientation="horizontal"]));
+@custom-variant vertical (&:is([data-orientation="vertical"], [aria-orientation="vertical"]));
+@custom-variant topmost (&:is([data-topmost]));

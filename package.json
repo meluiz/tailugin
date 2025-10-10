@@ -1,0 +1,65 @@
+{
+	"name": "tailugin",
+	"version": "0.1.0",
+	"author": {
+		"name": "meluiz",
+		"email": "me@meluiz.com",
+		"url": "https://meluiz.com"
+	},
+	"files": [
+		"plugins"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"homepage": "https://github.com/meluiz/tailung",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/meluiz/tailung.git"
+	},
+	"bugs": {
+		"url": "https://github.com/meluiz/tailung/issues"
+	},
+	"keywords": [
+		"tailugin",
+		"tailwind",
+		"tailwindcss",
+		"css",
+		"postcss",
+		"plugin",
+		"transition",
+		"animation",
+		"animate",
+		"animated",
+		"animatecss",
+		"animate.css",
+		"conditions",
+		"condition",
+		"condition.css",
+		"condition.css",
+		"easings",
+		"easing",
+		"easing.css",
+		"easing.css"
+	],
+	"main": "./plugins/main.css",
+	"unpkg": "./plugins/main.css",
+	"jsdelivr": "./plugins/main.css",
+	"exports": {
+		".": {
+			"default": "./plugins/main.css"
+		},
+		"./animate.css": {
+			"default": "./plugins/animate/main.css"
+		},
+		"./conditions.css": {
+			"default": "./plugins/conditions/main.css"
+		},
+		"./easings.css": {
+			"default": "./plugins/easings/main.css"
+		}
+	},
+	"peerDependencies": {
+		"tailwindcss": "^4"
+	}
+}

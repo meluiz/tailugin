@@ -1,0 +1,20 @@
+@custom-variant open (&:is([open], [data-open], [data-open="true"], [data-state="open"], [aria-expanded="true"]));
+@custom-variant closed (&:is([closed], [data-closed], [data-closed="true"], [data-state="closed"], [aria-expanded="false"]));
+
+@custom-variant checked (&:is([data-state="checked"], [aria-checked="true"], [data-checked], [data-checked="true"], [data-selected="true"]));
+@custom-variant unchecked (&:is([data-state="unchecked"], [aria-checked="false"], [data-checked="false"]));
+@custom-variant indeterminate (&:is([data-state="indeterminate"], [aria-checked="mixed"], [data-indeterminate], [data-indeterminate="true"]));
+
+@custom-variant on (&:is([data-state="on"], [role="switch"][aria-checked="true"]));
+@custom-variant off (&:is([data-state="off"], [role="switch"][aria-checked="false"]));
+
+@custom-variant expanded (&:is([aria-expanded="true"], [data-expanded], [data-expanded="true"], [data-state="expanded"], [data-open]));
+@custom-variant collapsed (&:is([aria-expanded="false"], [data-collapsed], [data-collapsed="true"], [data-state="collapsed"], [data-closed]));
+
+@custom-variant highlighted (&:is([data-highlighted], [data-highlighted="true"], [aria-selected="true"]));
+
+@custom-variant current (&:is([aria-current], [aria-current="true"], [data-current], [data-current="true"]));
+@custom-variant current-page (&:is([aria-current="page"]));
+@custom-variant current-step (&:is([aria-current="step"]));
+
+@custom-variant under-value (&:is([data-state="under-value"], [data-under-value]));
