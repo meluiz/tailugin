@@ -1,7 +1,7 @@
 # tailugin
 
 Tailugin is a collection of Tailwind CSS v4–ready utilities, offering expressive @utility rules for enter/leave animations (originally by [jamiebuilds/tailwindcss-animate](https://github.com/jamiebuilds/tailwindcss-animate)
-), refined easing presets, and semantic UI state variants—so you can compose polished interactions using idiomatic Tailwind class names.
+), refined easing presets, and semantic UI state variants — so you can compose polished interactions using idiomatic Tailwind class names.
 
 > **Compatibility**: Tailugin targets the Tailwind CSS v4 architecture (`@utility`, `@custom-variant`, `@theme`). Earlier versions of Tailwind do not understand these directives.
 
