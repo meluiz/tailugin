@@ -73,28 +73,28 @@ Tailugin exposes a curated easing palette via `@theme`. Reference these custom p
 
 | Token                 | Curve                                     | Preview (for reference only)                         |
 | --------------------- | ----------------------------------------- | ---------------------------------------------------- |
-| `--ease-anticipate`   | `cubic-bezier(1, -0.4, 0.35, 0.95)`       | ![Anticipate](https://www.easing.dev/anticipate)     |
-| `--ease-quick-out`    | `cubic-bezier(0, 0, 0.2, 1)`              | ![Quick Out](https://www.easing.dev/quick-out)       |
-| `--ease-in-quad`      | `cubic-bezier(0.55, 0.085, 0.68, 0.53)`   | ![In Quad](https://www.easing.dev/in-quad)           |
-| `--ease-in-cubic`     | `cubic-bezier(0.55, 0.055, 0.675, 0.19)`  | ![In Cubic](https://www.easing.dev/in-cubic)         |
-| `--ease-in-quart`     | `cubic-bezier(0.895, 0.03, 0.685, 0.22)`  | ![In Quart](https://www.easing.dev/in-quart)         |
-| `--ease-in-quint`     | `cubic-bezier(0.755, 0.05, 0.855, 0.06)`  | ![In Quint](https://www.easing.dev/in-quint)         |
-| `--ease-in-expo`      | `cubic-bezier(0.95, 0.05, 0.795, 0.035)`  | ![In Expo](https://www.easing.dev/in-expo)           |
-| `--ease-in-circ`      | `cubic-bezier(0.6, 0.04, 0.98, 0.335)`    | ![In Circ](https://www.easing.dev/in-circ)           |
-| `--ease-out-quad`     | `cubic-bezier(0.25, 0.46, 0.45, 0.94)`    | ![Out Quad](https://www.easing.dev/out-quad)         |
-| `--ease-out-cubic`    | `cubic-bezier(0.215, 0.61, 0.355, 1)`     | ![Out Cubic](https://www.easing.dev/out-cubic)       |
-| `--ease-out-quart`    | `cubic-bezier(0.165, 0.84, 0.44, 1)`      | ![Out Quart](https://www.easing.dev/out-quart)       |
-| `--ease-out-quint`    | `cubic-bezier(0.23, 1, 0.32, 1)`          | ![Out Quint](https://www.easing.dev/out-quint)       |
-| `--ease-out-expo`     | `cubic-bezier(0.19, 1, 0.22, 1)`          | ![Out Expo](https://www.easing.dev/out-expo)         |
-| `--ease-out-circ`     | `cubic-bezier(0.075, 0.82, 0.165, 1)`     | ![Out Circ](https://www.easing.dev/out-circ)         |
-| `--ease-in-out`       | `cubic-bezier(0.42, 0, 0.58, 1)`          | ![In-Out](https://www.easing.dev/in-out)             |
-| `--ease-in-out-base`  | `cubic-bezier(0.25, 0.1, 0.25, 1)`        | ![In-Out Base](https://www.easing.dev/in-out-base)   |
-| `--ease-in-out-quad`  | `cubic-bezier(0.455, 0.03, 0.515, 0.955)` | ![In-Out Quad](https://www.easing.dev/in-out-quad)   |
-| `--ease-in-out-cubic` | `cubic-bezier(0.645, 0.045, 0.355, 1)`    | ![In-Out Cubic](https://www.easing.dev/in-out-cubic) |
-| `--ease-in-out-quart` | `cubic-bezier(0.77, 0, 0.175, 1)`         | ![In-Out Quart](https://www.easing.dev/in-out-quart) |
-| `--ease-in-out-quint` | `cubic-bezier(0.86, 0, 0.07, 1)`          | ![In-Out Quint](https://www.easing.dev/in-out-quint) |
-| `--ease-in-out-expo`  | `cubic-bezier(1, 0, 0, 1)`                | ![In-Out Expo](https://www.easing.dev/in-out-expo)   |
-| `--ease-in-out-circ`  | `cubic-bezier(0.785, 0.135, 0.15, 0.86)`  | ![In-Out Circ](https://www.easing.dev/in-out-circ)   |
+| `--ease-anticipate`   | `cubic-bezier(1, -0.4, 0.35, 0.95)`       | [Anticipate](https://www.easing.dev/anticipate)      |
+| `--ease-quick-out`    | `cubic-bezier(0, 0, 0.2, 1)`              | [Quick Out](https://www.easing.dev/quick-out)        |
+| `--ease-in-quad`      | `cubic-bezier(0.55, 0.085, 0.68, 0.53)`   | [In Quad](https://www.easing.dev/in-quad)            |
+| `--ease-in-cubic`     | `cubic-bezier(0.55, 0.055, 0.675, 0.19)`  | [In Cubic](https://www.easing.dev/in-cubic)          |
+| `--ease-in-quart`     | `cubic-bezier(0.895, 0.03, 0.685, 0.22)`  | [In Quart](https://www.easing.dev/in-quart)          |
+| `--ease-in-quint`     | `cubic-bezier(0.755, 0.05, 0.855, 0.06)`  | [In Quint](https://www.easing.dev/in-quint)          |
+| `--ease-in-expo`      | `cubic-bezier(0.95, 0.05, 0.795, 0.035)`  | [In Expo](https://www.easing.dev/in-expo)            |
+| `--ease-in-circ`      | `cubic-bezier(0.6, 0.04, 0.98, 0.335)`    | [In Circ](https://www.easing.dev/in-circ)            |
+| `--ease-out-quad`     | `cubic-bezier(0.25, 0.46, 0.45, 0.94)`    | [Out Quad](https://www.easing.dev/out-quad)          |
+| `--ease-out-cubic`    | `cubic-bezier(0.215, 0.61, 0.355, 1)`     | [Out Cubic](https://www.easing.dev/out-cubic)        |
+| `--ease-out-quart`    | `cubic-bezier(0.165, 0.84, 0.44, 1)`      | [Out Quart](https://www.easing.dev/out-quart)        |
+| `--ease-out-quint`    | `cubic-bezier(0.23, 1, 0.32, 1)`          | [Out Quint](https://www.easing.dev/out-quint)        |
+| `--ease-out-expo`     | `cubic-bezier(0.19, 1, 0.22, 1)`          | [Out Expo](https://www.easing.dev/out-expo)          |
+| `--ease-out-circ`     | `cubic-bezier(0.075, 0.82, 0.165, 1)`     | [Out Circ](https://www.easing.dev/out-circ)          |
+| `--ease-in-out`       | `cubic-bezier(0.42, 0, 0.58, 1)`          | [In-Out](https://www.easing.dev/in-out)              |
+| `--ease-in-out-base`  | `cubic-bezier(0.25, 0.1, 0.25, 1)`        | [In-Out Base](https://www.easing.dev/in-out-base)    |
+| `--ease-in-out-quad`  | `cubic-bezier(0.455, 0.03, 0.515, 0.955)` | [In-Out Quad](https://www.easing.dev/in-out-quad)    |
+| `--ease-in-out-cubic` | `cubic-bezier(0.645, 0.045, 0.355, 1)`    | [In-Out Cubic](https://www.easing.dev/in-out-cubic)  |
+| `--ease-in-out-quart` | `cubic-bezier(0.77, 0, 0.175, 1)`         | [In-Out Quart](https://www.easing.dev/in-out-quart)  |
+| `--ease-in-out-quint` | `cubic-bezier(0.86, 0, 0.07, 1)`          | [In-Out Quint](https://www.easing.dev/in-out-quint)  |
+| `--ease-in-out-expo`  | `cubic-bezier(1, 0, 0, 1)`                | [In-Out Expo](https://www.easing.dev/in-out-expo)    |
+| `--ease-in-out-circ`  | `cubic-bezier(0.785, 0.135, 0.15, 0.86)`  | [In-Out Circ](https://www.easing.dev/in-out-circ)    |
 
 To use them, map Tailwind class names to the variables in your CSS, for example:
 
