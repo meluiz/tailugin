@@ -1,0 +1,13 @@
+@theme {
+  --color-cactus-50: oklch(97% 0.008 150);
+  --color-cactus-100: oklch(93.5% 0.018 150);
+  --color-cactus-200: oklch(87% 0.035 150);
+  --color-cactus-300: oklch(79% 0.058 150);
+  --color-cactus-400: oklch(70.5% 0.08 150);
+  --color-cactus-500: oklch(62% 0.095 150);
+  --color-cactus-600: oklch(53.5% 0.088 150);
+  --color-cactus-700: oklch(45.5% 0.075 150);
+  --color-cactus-800: oklch(39% 0.061 150);
+  --color-cactus-900: oklch(33% 0.048 150);
+  --color-cactus-950: oklch(22% 0.03 150);
+}

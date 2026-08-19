@@ -50,6 +50,9 @@
 		"./animate.css": {
 			"default": "./plugins/animate/main.css"
 		},
+		"./colors.css": {
+			"default": "./plugins/colors/main.css"
+		},
 		"./conditions.css": {
 			"default": "./plugins/conditions/main.css"
 		},

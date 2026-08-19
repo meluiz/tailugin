@@ -1,0 +1,13 @@
+@theme {
+  --color-heather-50: oklch(97% 0.008 295);
+  --color-heather-100: oklch(93.5% 0.02 295);
+  --color-heather-200: oklch(87% 0.039 295);
+  --color-heather-300: oklch(79% 0.064 295);
+  --color-heather-400: oklch(70.5% 0.088 295);
+  --color-heather-500: oklch(62% 0.105 295);
+  --color-heather-600: oklch(53.5% 0.098 295);
+  --color-heather-700: oklch(45.5% 0.083 295);
+  --color-heather-800: oklch(39% 0.067 295);
+  --color-heather-900: oklch(33% 0.054 295);
+  --color-heather-950: oklch(22% 0.034 295);
+}

@@ -1,0 +1,13 @@
+@theme {
+  --color-kraft-50: oklch(97% 0.007 62);
+  --color-kraft-100: oklch(93.5% 0.017 62);
+  --color-kraft-200: oklch(87% 0.034 62);
+  --color-kraft-300: oklch(79% 0.056 62);
+  --color-kraft-400: oklch(70.5% 0.077 62);
+  --color-kraft-500: oklch(62% 0.092 62);
+  --color-kraft-600: oklch(53.5% 0.086 62);
+  --color-kraft-700: oklch(45.5% 0.073 62);
+  --color-kraft-800: oklch(39% 0.059 62);
+  --color-kraft-900: oklch(33% 0.047 62);
+  --color-kraft-950: oklch(22% 0.029 62);
+}

@@ -1,0 +1,13 @@
+@theme {
+  --color-clay-50: oklch(97% 0.011 40);
+  --color-clay-100: oklch(93.5% 0.027 40);
+  --color-clay-200: oklch(87% 0.052 40);
+  --color-clay-300: oklch(79% 0.085 40);
+  --color-clay-400: oklch(70.5% 0.118 40);
+  --color-clay-500: oklch(62% 0.14 40);
+  --color-clay-600: oklch(53.5% 0.13 40);
+  --color-clay-700: oklch(45.5% 0.111 40);
+  --color-clay-800: oklch(39% 0.09 40);
+  --color-clay-900: oklch(33% 0.071 40);
+  --color-clay-950: oklch(22% 0.045 40);
+}
