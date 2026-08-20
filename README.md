@@ -1,7 +1,7 @@
 # tailugin
 
 Tailugin is a collection of Tailwind CSS v4–ready utilities, offering expressive @utility rules for enter/leave animations (originally by [jamiebuilds/tailwindcss-animate](https://github.com/jamiebuilds/tailwindcss-animate)
-), refined easing presets, and semantic UI state variants — so you can compose polished interactions using idiomatic Tailwind class names.
+), refined easing presets, OKLCH color palettes, and semantic UI state variants — so you can compose polished interfaces using idiomatic Tailwind class names.
 
 > **Compatibility**: Tailugin targets the Tailwind CSS v4 architecture (`@utility`, `@custom-variant`, `@theme`). Earlier versions of Tailwind do not understand these directives.
 
@@ -10,12 +10,10 @@ Tailugin is a collection of Tailwind CSS v4–ready utilities, offering expressi
 Install Tailugin alongside Tailwind CSS v4:
 
 ```bash
-bun add tailugin tailwindcss@next
+bun add tailugin tailwindcss
 # or
-npm install tailugin tailwindcss@next
+npm install tailugin tailwindcss
 ```
-
-> Tailwind CSS v4 is still in prerelease as of this writing. Replace `@next` with the latest compatible tag once Tailwind publishes v4 formally.
 
 ## Usage
 
@@ -26,10 +24,11 @@ Import Tailugin from your Tailwind entry CSS (for example `app.css`). Tailwind v
 @import "tailugin";
 ```
 
-You can also ships granular entry points if you only need a subset of utilities:
+You can also use granular entry points if you only need a subset of utilities:
 
 ```css
 @import "tailugin/animate.css";
+@import "tailugin/colors.css";
 @import "tailugin/conditions.css";
 @import "tailugin/easings.css";
 ```
@@ -96,15 +95,66 @@ Tailugin exposes a curated easing palette via `@theme`. Reference these custom p
 | `--ease-in-out-expo`  | `cubic-bezier(1, 0, 0, 1)`                | [In-Out Expo](https://www.easing.dev/in-out-expo)    |
 | `--ease-in-out-circ`  | `cubic-bezier(0.785, 0.135, 0.15, 0.86)`  | [In-Out Circ](https://www.easing.dev/in-out-circ)    |
 
-To use them, map Tailwind class names to the variables in your CSS, for example:
+Because the tokens use Tailwind's `--ease-*` theme namespace, native transition utilities are generated automatically:
+
+```html
+<button class="transition-transform ease-in-quad hover:scale-105">
+  Continue
+</button>
+```
+
+## Color palettes
+
+Tailugin adds nine color palettes to Tailwind's theme. Each palette provides the standard `50`, `100`–`900`, and `950` shades as OKLCH values, giving you 99 canonical color tokens plus 11 compatibility aliases for the former `manilla` spelling.
+
+| Palette   | Token range                    | Hue |
+| --------- | ------------------------------ | ---: |
+| `cactus`  | `--color-cactus-50`–`950`      | 150° |
+| `clay`    | `--color-clay-50`–`950`        |  40° |
+| `dusk`    | `--color-dusk-50`–`950`        | 235° |
+| `fig`     | `--color-fig-50`–`950`         | 350° |
+| `heather` | `--color-heather-50`–`950`     | 295° |
+| `kraft`   | `--color-kraft-50`–`950`       |  62° |
+| `manila`  | `--color-manila-50`–`950`      |  88° |
+| `olive`   | `--color-olive-50`–`950`       | 118° |
+| `silt`    | `--color-silt-50`–`950`        |  85° |
+
+Importing `tailugin` registers all palettes. To use only the color module, import its granular entry point instead:
 
 ```css
-@utility ease-in-quad {
-  animation-timing-function: var(--ease-in-quad);
+@import "tailwindcss";
+@import "tailugin/colors.css";
+```
+
+The tokens work with Tailwind's native color utilities, including backgrounds, text, borders, outlines, rings, gradients, and shadows:
+
+```html
+<article class="border border-clay-200 bg-kraft-50 text-silt-950">
+  <a class="text-dusk-700 hover:text-dusk-900">Read more</a>
+  <span class="bg-cactus-100 text-cactus-800">New</span>
+</article>
+```
+
+You can also reference the generated custom properties directly in CSS:
+
+```css
+.callout {
+  background-color: var(--color-heather-100);
+  color: var(--color-fig-900);
 }
 ```
 
-Tailwind v4's default theme has not finalized named easings yet, so Tailugin does not register class aliases out of the box. Define the utilities above in your project if you need direct class names.
+Every palette also has an individual entry point when you want to register only one family:
+
+```css
+@import "tailwindcss";
+@import "tailugin/colors/cactus.css";
+@import "tailugin/colors/manila.css";
+```
+
+The original `manilla` spelling remains available as a compatibility alias through `tailugin/colors/manilla.css` and the `--color-manilla-*` tokens. Prefer `manila` in new code.
+
+These palettes are design tokens rather than predefined accessible foreground/background pairs. OKLCH provides more predictable perceptual steps, but you should still validate the contrast of each combination against your accessibility requirements.
 
 ## Custom variants
 
@@ -168,6 +218,18 @@ Tailugin defines semantic variants that respond to ARIA, `data-*`, and structura
 | ------- | ------------------------------------------------ |
 | `dark`  | `.dark` scope (excluding nested `.light` scopes) |
 
+### Individual condition entry points
+
+Import the complete conditions module with `tailugin/conditions.css`, or register only the group your project needs:
+
+```css
+@import "tailugin/conditions/calendar.css";
+@import "tailugin/conditions/interaction.css";
+@import "tailugin/conditions/layout.css";
+@import "tailugin/conditions/state.css";
+@import "tailugin/conditions/theme.css";
+```
+
 ## Combining utilities and variants
 
 Because Tailugin relies on Tailwind's native directives, you can compose utilities and variants exactly as you would built-in classes. For example:
@@ -185,7 +247,7 @@ This button zooms and fades in with a custom ease curve, while the `disabled` va
 ## Troubleshooting
 
 - **Missing class warnings**: Tailwind v4 is responsible for generating the final CSS from `@utility` rules. Ensure your Tailwind CLI or framework integration is on v4; earlier versions silently ignore the directives.
-- **Custom easing utility names**: Tailugin only registers the CSS variables for easings. Define your own `@utility` wrappers or rely on Tailwind's upcoming defaults once available.
+- **Missing easing classes**: Ensure `tailugin` or `tailugin/easings.css` is imported before using utilities such as `ease-in-quad`.
 
 ## License
 
