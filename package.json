@@ -13,13 +13,13 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"homepage": "https://github.com/meluiz/tailung",
+	"homepage": "https://github.com/meluiz/tailugin",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/meluiz/tailung.git"
+		"url": "git+https://github.com/meluiz/tailugin.git"
 	},
 	"bugs": {
-		"url": "https://github.com/meluiz/tailung/issues"
+		"url": "https://github.com/meluiz/tailugin/issues"
 	},
 	"keywords": [
 		"css",
