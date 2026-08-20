@@ -1,7 +1,7 @@
 {
 	"name": "tailugin",
 	"description": "A collection of Tailwind CSS V4-ready utilities.",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"author": {
 		"name": "meluiz",
 		"email": "me@meluiz.com",
@@ -56,8 +56,53 @@
 		"./colors.css": {
 			"default": "./plugins/colors/main.css"
 		},
+		"./colors/cactus.css": {
+			"default": "./plugins/colors/cactus.css"
+		},
+		"./colors/clay.css": {
+			"default": "./plugins/colors/clay.css"
+		},
+		"./colors/dusk.css": {
+			"default": "./plugins/colors/dusk.css"
+		},
+		"./colors/fig.css": {
+			"default": "./plugins/colors/fig.css"
+		},
+		"./colors/heather.css": {
+			"default": "./plugins/colors/heather.css"
+		},
+		"./colors/kraft.css": {
+			"default": "./plugins/colors/kraft.css"
+		},
+		"./colors/manila.css": {
+			"default": "./plugins/colors/manila.css"
+		},
+		"./colors/manilla.css": {
+			"default": "./plugins/colors/manilla.css"
+		},
+		"./colors/olive.css": {
+			"default": "./plugins/colors/olive.css"
+		},
+		"./colors/silt.css": {
+			"default": "./plugins/colors/silt.css"
+		},
 		"./conditions.css": {
 			"default": "./plugins/conditions/main.css"
+		},
+		"./conditions/calendar.css": {
+			"default": "./plugins/conditions/calendar.css"
+		},
+		"./conditions/interaction.css": {
+			"default": "./plugins/conditions/interaction.css"
+		},
+		"./conditions/layout.css": {
+			"default": "./plugins/conditions/layout.css"
+		},
+		"./conditions/state.css": {
+			"default": "./plugins/conditions/state.css"
+		},
+		"./conditions/theme.css": {
+			"default": "./plugins/conditions/theme.css"
 		},
 		"./easings.css": {
 			"default": "./plugins/easings/main.css"
