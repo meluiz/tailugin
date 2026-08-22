@@ -1,0 +1,36 @@
+/* tailugin/preflight — typographic refinements on top of Tailwind's Preflight.
+   Tailwind's own Preflight (imported with `@import "tailwindcss"`) already
+   handles the reset and cross-browser normalization. This adds only the
+   enhancements Preflight doesn't cover. Unsupported properties are ignored
+   by the browser without breaking layout, so everything here is safe. */
+
+html {
+  hyphens: auto;
+  text-rendering: optimizeLegibility;
+  font-synthesis: none;
+  font-optical-sizing: auto;
+  font-variant-numeric: tabular-nums slashed-zero;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+  overflow-wrap: anywhere;
+  hanging-punctuation: first;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-feature-settings:
+    "liga" 1,
+    "calt" 1;
+}
