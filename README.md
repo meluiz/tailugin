@@ -1,254 +1,203 @@
 # tailugin
 
-Tailugin is a collection of Tailwind CSS v4–ready utilities, offering expressive @utility rules for enter/leave animations (originally by [jamiebuilds/tailwindcss-animate](https://github.com/jamiebuilds/tailwindcss-animate)
-), refined easing presets, OKLCH color palettes, and semantic UI state variants — so you can compose polished interfaces using idiomatic Tailwind class names.
+A collection of Tailwind CSS v4 utilities: enter/exit animations, semantic state variants, OKLCH color palettes, and easing tokens — all authored with native v4 directives (`@utility`, `@custom-variant`, `@theme`), so they compose exactly like built-in classes.
 
-> **Compatibility**: Tailugin targets the Tailwind CSS v4 architecture (`@utility`, `@custom-variant`, `@theme`). Earlier versions of Tailwind do not understand these directives.
+[![npm version](https://img.shields.io/npm/v/tailugin.svg)](https://www.npmjs.com/package/tailugin)
+[![npm downloads](https://img.shields.io/npm/dm/tailugin.svg)](https://www.npmjs.com/package/tailugin)
+[![license](https://img.shields.io/npm/l/tailugin.svg)](./LICENSE)
+
+> **Requires Tailwind CSS v4.** tailugin uses the v4 CSS-first architecture. It does not work with v3.
 
 ## Installation
 
-Install Tailugin alongside Tailwind CSS v4:
-
 ```bash
-bun add tailugin tailwindcss
+bun add tailugin
 # or
-npm install tailugin tailwindcss
+npm install tailugin
 ```
 
 ## Usage
 
-Import Tailugin from your Tailwind entry CSS (for example `app.css`). Tailwind v4 processes the `@import` statements at build time.
+Import Tailwind, then tailugin, in your entry CSS:
 
 ```css
 @import "tailwindcss";
 @import "tailugin";
 ```
 
-You can also use granular entry points if you only need a subset of utilities:
+That's the whole setup. Everything below is now available as utility classes and variants.
 
-```css
-@import "tailugin/animate.css";
-@import "tailugin/colors.css";
-@import "tailugin/conditions.css";
-@import "tailugin/easings.css";
-```
+Prefer to pull in only what you need? Every module has its own entry point — see [Granular imports](#granular-imports).
 
-### Class name syntax
+## Modules
 
-All utilities follow the Tailwind CSS v4 pattern where the suffix after the utility name becomes the `--value()` argument. For numeric shorthands, integers are multiplied by sensible units (percentages, degrees, or spacing scale). Where Tailwind lacks defaults (for example, there is no canonical list of custom easing tokens yet), Tailugin provides theme tokens you can reference.
+tailugin is organized into four independent modules:
 
-## Animation utilities
+| Module        | What it adds                         | Import               |
+| ------------- | ------------------------------------ | -------------------- |
+| **theme**     | 11 color palettes + 22 easing tokens | `tailugin/theme`     |
+| **variants**  | 21 semantic state variants           | `tailugin/variants`  |
+| **utilities** | Enter/exit animation utilities       | `tailugin/utilities` |
+| **preflight** | Typographic refinements              | `tailugin/preflight` |
 
-| Utility          | Description                                                                                                                                                                                                                          | Accepted values                                                   |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
-| `animate-in`     | Sets up shared enter animation keyframes. Use with other utilities (e.g., `fade-in-0`) to define the actual transform/opacity. Duration defaults to `300ms`; override with Tailwind's `duration-*` utilities or set `--tw-duration`. | n/a                                                               |
-| `animate-out`    | Sets up shared leave animation keyframes. Combine with exit utilities such as `slide-out-y-4`. Duration defaults to `300ms`.                                                                                                         | n/a                                                               |
-| `fill-mode-*`    | Controls `animation-fill-mode`. Accepts `none`, `forwards`, `backwards`, `both`.                                                                                                                                                     | literal keywords                                                  |
-| `direction-*`    | Controls `animation-direction`. Accepts `normal`, `reverse`, `alternate`, `alternate-reverse`.                                                                                                                                       | literal keywords                                                  |
-| `repeat-*`       | Sets `animation-iteration-count`. Provide an integer (`repeat-3`) or `[integer]` arbitrary value, including `infinite`.                                                                                                              | integer, `[integer]`, `infinite`                                  |
-| `play-state-*`   | Controls `animation-play-state`. Accepts `running` or `paused`.                                                                                                                                                                      | literal keywords                                                  |
-| `fade-in-*`      | Sets `--tw-enter-opacity`. Numeric suffixes map to percentages; arbitrary values allowed.                                                                                                                                            | integers → %, `[percentage]`                                      |
-| `fade-out-*`     | Sets `--tw-leave-opacity`. Numeric suffixes map to percentages; arbitrary values allowed.                                                                                                                                            | integers → %, `[percentage]`                                      |
-| `slide-in-y-*`   | Sets `--tw-enter-translate-y` from Tailwind spacing scale or arbitrary `[percentage]/[length]`.                                                                                                                                      | integers → spacing, arbitrary length/percentage                   |
-| `-slide-in-y-*`  | Negative version of `slide-in-y-*`.                                                                                                                                                                                                  | integers → negative spacing, arbitrary negative length/percentage |
-| `slide-out-y-*`  | Sets `--tw-leave-translate-y`.                                                                                                                                                                                                       | integers → spacing, arbitrary length/percentage                   |
-| `-slide-out-y-*` | Negative version of `slide-out-y-*`.                                                                                                                                                                                                 | integers → negative spacing, arbitrary negative length/percentage |
-| `slide-in-x-*`   | Sets `--tw-enter-translate-x`.                                                                                                                                                                                                       | integers → spacing, arbitrary length/percentage                   |
-| `-slide-in-x-*`  | Negative version of `slide-in-x-*`.                                                                                                                                                                                                  | integers → negative spacing, arbitrary negative length/percentage |
-| `slide-out-x-*`  | Sets `--tw-leave-translate-x`.                                                                                                                                                                                                       | integers → spacing, arbitrary length/percentage                   |
-| `-slide-out-x-*` | Negative version of `slide-out-x-*`.                                                                                                                                                                                                 | integers → negative spacing, arbitrary negative length/percentage |
-| `spin-in-*`      | Sets `--tw-enter-rotate`. Numeric suffix maps to degrees; arbitrary angles allowed.                                                                                                                                                  | integers → deg, `[angle]`                                         |
-| `-spin-in-*`     | Negative rotation for enter animations.                                                                                                                                                                                              | integers → -deg, `[angle]`                                        |
-| `spin-out-*`     | Sets `--tw-leave-rotate`.                                                                                                                                                                                                            | integers → deg, `[angle]`                                         |
-| `-spin-out-*`    | Negative rotation for leave animations.                                                                                                                                                                                              | integers → -deg, `[angle]`                                        |
-| `zoom-in-*`      | Sets `--tw-enter-scale`. Numeric suffix maps to percentages; arbitrary percentages allowed.                                                                                                                                          | integers → %, `[percentage]`                                      |
-| `zoom-out-*`     | Sets `--tw-leave-scale`. Numeric suffix maps to percentages; arbitrary percentages allowed.                                                                                                                                          | integers → %, `[percentage]`                                      |
+---
 
-All animation primitives rely on the shared `@keyframes animate-enter` and `@keyframes animate-leave` definitions. Combine enter (`animate-in`) and leave (`animate-out`) utilities with the transformation utilities to orchestrate complex transitions.
+## Colors
 
-## Easing theme tokens
+11 OKLCH palettes, each with an 11-step ramp (`50`–`950`). They **add to** Tailwind's default colors — nothing native is overwritten, so `bg-blue-500` and `bg-cactus-500` coexist.
 
-Tailugin exposes a curated easing palette via `@theme`. Reference these custom properties through Tailwind's native `ease-*` utilities or by authoring custom utilities that read the variables.
-
-| Token                 | Curve                                     | Preview (for reference only)                         |
-| --------------------- | ----------------------------------------- | ---------------------------------------------------- |
-| `--ease-anticipate`   | `cubic-bezier(1, -0.4, 0.35, 0.95)`       | [Anticipate](https://www.easing.dev/anticipate)      |
-| `--ease-quick-out`    | `cubic-bezier(0, 0, 0.2, 1)`              | [Quick Out](https://www.easing.dev/quick-out)        |
-| `--ease-in-quad`      | `cubic-bezier(0.55, 0.085, 0.68, 0.53)`   | [In Quad](https://www.easing.dev/in-quad)            |
-| `--ease-in-cubic`     | `cubic-bezier(0.55, 0.055, 0.675, 0.19)`  | [In Cubic](https://www.easing.dev/in-cubic)          |
-| `--ease-in-quart`     | `cubic-bezier(0.895, 0.03, 0.685, 0.22)`  | [In Quart](https://www.easing.dev/in-quart)          |
-| `--ease-in-quint`     | `cubic-bezier(0.755, 0.05, 0.855, 0.06)`  | [In Quint](https://www.easing.dev/in-quint)          |
-| `--ease-in-expo`      | `cubic-bezier(0.95, 0.05, 0.795, 0.035)`  | [In Expo](https://www.easing.dev/in-expo)            |
-| `--ease-in-circ`      | `cubic-bezier(0.6, 0.04, 0.98, 0.335)`    | [In Circ](https://www.easing.dev/in-circ)            |
-| `--ease-out-quad`     | `cubic-bezier(0.25, 0.46, 0.45, 0.94)`    | [Out Quad](https://www.easing.dev/out-quad)          |
-| `--ease-out-cubic`    | `cubic-bezier(0.215, 0.61, 0.355, 1)`     | [Out Cubic](https://www.easing.dev/out-cubic)        |
-| `--ease-out-quart`    | `cubic-bezier(0.165, 0.84, 0.44, 1)`      | [Out Quart](https://www.easing.dev/out-quart)        |
-| `--ease-out-quint`    | `cubic-bezier(0.23, 1, 0.32, 1)`          | [Out Quint](https://www.easing.dev/out-quint)        |
-| `--ease-out-expo`     | `cubic-bezier(0.19, 1, 0.22, 1)`          | [Out Expo](https://www.easing.dev/out-expo)          |
-| `--ease-out-circ`     | `cubic-bezier(0.075, 0.82, 0.165, 1)`     | [Out Circ](https://www.easing.dev/out-circ)          |
-| `--ease-in-out`       | `cubic-bezier(0.42, 0, 0.58, 1)`          | [In-Out](https://www.easing.dev/in-out)              |
-| `--ease-in-out-base`  | `cubic-bezier(0.25, 0.1, 0.25, 1)`        | [In-Out Base](https://www.easing.dev/in-out-base)    |
-| `--ease-in-out-quad`  | `cubic-bezier(0.455, 0.03, 0.515, 0.955)` | [In-Out Quad](https://www.easing.dev/in-out-quad)    |
-| `--ease-in-out-cubic` | `cubic-bezier(0.645, 0.045, 0.355, 1)`    | [In-Out Cubic](https://www.easing.dev/in-out-cubic)  |
-| `--ease-in-out-quart` | `cubic-bezier(0.77, 0, 0.175, 1)`         | [In-Out Quart](https://www.easing.dev/in-out-quart)  |
-| `--ease-in-out-quint` | `cubic-bezier(0.86, 0, 0.07, 1)`          | [In-Out Quint](https://www.easing.dev/in-out-quint)  |
-| `--ease-in-out-expo`  | `cubic-bezier(1, 0, 0, 1)`                | [In-Out Expo](https://www.easing.dev/in-out-expo)    |
-| `--ease-in-out-circ`  | `cubic-bezier(0.785, 0.135, 0.15, 0.86)`  | [In-Out Circ](https://www.easing.dev/in-out-circ)    |
-
-Because the tokens use Tailwind's `--ease-*` theme namespace, native transition utilities are generated automatically:
+![Color palettes](./assets/palettes.svg)
 
 ```html
-<button class="transition-transform ease-in-quad hover:scale-105">
-  Continue
-</button>
+<div class="bg-cactus-500 text-clay-50 border-dusk-200">…</div>
 ```
 
-## Color palettes
+Available palettes: `cactus`, `clay`, `dusk`, `fig`, `heather`, `kraft`, `lagoon`, `manila`, `moss`, `orchid`, `silt`.
 
-Tailugin adds nine color palettes to Tailwind's theme. Each palette provides the standard `50`, `100`–`900`, and `950` shades as OKLCH values, giving you 99 canonical color tokens plus 11 compatibility aliases for the former `manilla` spelling.
+Every palette shares the same lightness scale, so swapping one for another keeps contrast consistent across your UI.
 
-| Palette   | Token range                    | Hue |
-| --------- | ------------------------------ | ---: |
-| `cactus`  | `--color-cactus-50`–`950`      | 150° |
-| `clay`    | `--color-clay-50`–`950`        |  40° |
-| `dusk`    | `--color-dusk-50`–`950`        | 235° |
-| `fig`     | `--color-fig-50`–`950`         | 350° |
-| `heather` | `--color-heather-50`–`950`     | 295° |
-| `kraft`   | `--color-kraft-50`–`950`       |  62° |
-| `manila`  | `--color-manila-50`–`950`      |  88° |
-| `olive`   | `--color-olive-50`–`950`       | 118° |
-| `silt`    | `--color-silt-50`–`950`        |  85° |
+---
 
-Importing `tailugin` registers all palettes. To use only the color module, import its granular entry point instead:
+## Animations
 
-```css
-@import "tailwindcss";
-@import "tailugin/colors.css";
-```
-
-The tokens work with Tailwind's native color utilities, including backgrounds, text, borders, outlines, rings, gradients, and shadows:
+Enter/exit animations built on two base utilities — `animate-in` and `animate-out` — combined with modifier utilities that describe the motion.
 
 ```html
-<article class="border border-clay-200 bg-kraft-50 text-silt-950">
-  <a class="text-dusk-700 hover:text-dusk-900">Read more</a>
-  <span class="bg-cactus-100 text-cactus-800">New</span>
-</article>
+<!-- A popover that fades, zooms, and slides in from the top -->
+<div class="animate-in fade-in zoom-in slide-in-top-2 duration-200">…</div>
 ```
 
-You can also reference the generated custom properties directly in CSS:
+### How it works
 
-```css
-.callout {
-  background-color: var(--color-heather-100);
-  color: var(--color-fig-900);
-}
-```
-
-Every palette also has an individual entry point when you want to register only one family:
-
-```css
-@import "tailwindcss";
-@import "tailugin/colors/cactus.css";
-@import "tailugin/colors/manila.css";
-```
-
-The original `manilla` spelling remains available as a compatibility alias through `tailugin/colors/manilla.css` and the `--color-manilla-*` tokens. Prefer `manila` in new code.
-
-These palettes are design tokens rather than predefined accessible foreground/background pairs. OKLCH provides more predictable perceptual steps, but you should still validate the contrast of each combination against your accessibility requirements.
-
-## Custom variants
-
-Tailugin defines semantic variants that respond to ARIA, `data-*`, and structural state. Apply them using Tailwind's `variant:utility` syntax, such as `disabled:opacity-50` or `dark:bg-gray-950`.
-
-### Interaction variants
-
-| Variant             | Matches                                                                            |
-| ------------------- | ---------------------------------------------------------------------------------- |
-| `placeholder-shown` | `:placeholder-shown`, `[data-placeholder-shown]`                                   |
-| `active`            | `:active`, `[data-active]`, `[data-active="true"]`                                 |
-| `disabled`          | `:disabled`, `[data-disabled]`, `[data-disabled="true"]`, `[aria-disabled="true"]` |
-| `focus`             | `:focus`, `[data-focus]`, `[data-focus="true"]`                                    |
-| `focus-visible`     | `:focus-visible`, `[data-focus-visible]`, `[data-focus-visible="true"]`            |
-| `dragging`          | `[data-dragging]`, `[aria-grabbed="true"]`                                         |
-| `loading`           | `[data-loading]`, `[data-loading="true"]`, `[aria-busy="true"]`                    |
-| `fullscreen`        | `:fullscreen`, `[data-fullscreen]`, `[data-fullscreen="true"]`                     |
-
-### State variants
-
-| Variant         | Matches                                                                                                                |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `open`          | `[open]`, `[data-open]`, `[data-open="true"]`, `[data-state="open"]`, `[aria-expanded="true"]`                         |
-| `closed`        | `[closed]`, `[data-closed]`, `[data-closed="true"]`, `[data-state="closed"]`, `[aria-expanded="false"]`                |
-| `checked`       | `[data-state="checked"]`, `[aria-checked="true"]`, `[data-checked]`, `[data-checked="true"]`, `[data-selected="true"]` |
-| `unchecked`     | `[data-state="unchecked"]`, `[aria-checked="false"]`, `[data-checked="false"]`                                         |
-| `indeterminate` | `[data-state="indeterminate"]`, `[aria-checked="mixed"]`, `[data-indeterminate]`, `[data-indeterminate="true"]`        |
-| `on`            | `[data-state="on"]`, `[role="switch"][aria-checked="true"]`                                                            |
-| `off`           | `[data-state="off"]`, `[role="switch"][aria-checked="false"]`                                                          |
-| `expanded`      | `[aria-expanded="true"]`, `[data-expanded]`, `[data-expanded="true"]`, `[data-state="expanded"]`, `[data-open]`        |
-| `collapsed`     | `[aria-expanded="false"]`, `[data-collapsed]`, `[data-collapsed="true"]`, `[data-state="collapsed"]`, `[data-closed]`  |
-| `highlighted`   | `[data-highlighted]`, `[data-highlighted="true"]`, `[aria-selected="true"]`                                            |
-| `current`       | `[aria-current]`, `[aria-current="true"]`, `[data-current]`, `[data-current="true"]`                                   |
-| `current-page`  | `[aria-current="page"]`                                                                                                |
-| `current-step`  | `[aria-current="step"]`                                                                                                |
-| `under-value`   | `[data-state="under-value"]`, `[data-under-value]`                                                                     |
-
-### Layout variants
-
-| Variant      | Matches                                                              |
-| ------------ | -------------------------------------------------------------------- |
-| `horizontal` | `[data-orientation="horizontal"]`, `[aria-orientation="horizontal"]` |
-| `vertical`   | `[data-orientation="vertical"]`, `[aria-orientation="vertical"]`     |
-| `topmost`    | `[data-topmost]`                                                     |
-
-### Calendar variants
-
-| Variant       | Matches                                         |
-| ------------- | ----------------------------------------------- |
-| `now`         | `[data-now]`                                    |
-| `today`       | `[data-today]`, `[aria-current="date"]`         |
-| `unavailable` | `[data-unavailable]`                            |
-| `range-start` | `[data-range-start]`                            |
-| `range-end`   | `[data-range-end]`                              |
-| `complete`    | `[data-complete]`, `[data-completed="true"]`    |
-| `incomplete`  | `[data-incomplete]`, `[data-completed="false"]` |
-
-### Theme variants
-
-| Variant | Matches                                          |
-| ------- | ------------------------------------------------ |
-| `dark`  | `.dark` scope (excluding nested `.light` scopes) |
-
-### Individual condition entry points
-
-Import the complete conditions module with `tailugin/conditions.css`, or register only the group your project needs:
-
-```css
-@import "tailugin/conditions/calendar.css";
-@import "tailugin/conditions/interaction.css";
-@import "tailugin/conditions/layout.css";
-@import "tailugin/conditions/state.css";
-@import "tailugin/conditions/theme.css";
-```
-
-## Combining utilities and variants
-
-Because Tailugin relies on Tailwind's native directives, you can compose utilities and variants exactly as you would built-in classes. For example:
+`animate-in` / `animate-out` are the triggers — they start the animation. The modifiers (`fade-in`, `zoom-in`, `slide-in-top-*`, …) only describe _how_ the element moves; on their own they do nothing until a trigger runs. This means you can put the modifiers on the element unconditionally and only toggle the trigger:
 
 ```html
-<button
-  class="animate-in zoom-in-95 fade-in-0 duration-200 ease-out-quart disabled:opacity-50"
+<div
+  class="fade-in slide-in-top-2 fade-out slide-out-top-2
+         is-open:animate-in is-closed:animate-out duration-200"
 >
-  Continue
-</button>
+  …
+</div>
 ```
 
-This button zooms and fades in with a custom ease curve, while the `disabled` variant ensures the button visually responds to accessibility states.
+The state prefix appears twice (on the triggers), not on every modifier.
 
-## Troubleshooting
+### Timing
 
-- **Missing class warnings**: Tailwind v4 is responsible for generating the final CSS from `@utility` rules. Ensure your Tailwind CLI or framework integration is on v4; earlier versions silently ignore the directives.
-- **Missing easing classes**: Ensure `tailugin` or `tailugin/easings.css` is imported before using utilities such as `ease-in-quad`.
+Duration and easing use Tailwind's **native** utilities — no special classes needed:
+
+```html
+<div class="animate-in fade-in duration-300 ease-out-expo">…</div>
+```
+
+- `duration-*` — sets the animation duration (defaults to `150ms`).
+- `ease-*` — sets the timing function (see [Easings](#easings)).
+- `delay-*` — sets the animation delay.
+
+### Modifiers
+
+Each modifier works without a value (using a sensible default) or with one for full control.
+
+| Utility                             | Without value      | With value                                     |
+| ----------------------------------- | ------------------ | ---------------------------------------------- |
+| `fade-in` / `fade-out`              | opacity from `0`   | `fade-in-90` (from 90%), `fade-in-[0.7]`       |
+| `zoom-in` / `zoom-out`              | scale from `0.95`  | `zoom-in-50`, `zoom-in-[0.8]`                  |
+| `blur-in` / `blur-out`              | blur `4px`         | `blur-in-8`, `blur-in-[2px]`                   |
+| `spin-in` / `spin-out`              | _requires a value_ | `spin-in-90`, `-spin-in-45`, `spin-in-[30deg]` |
+| `slide-in-{top,bottom,left,right}`  | _requires a value_ | `slide-in-top-8`, `slide-in-left-[3rem]`       |
+| `slide-out-{top,bottom,left,right}` | _requires a value_ | `slide-out-top-8`                              |
+
+> **Naming:** `in` means _where it comes from_, `out` means _where it goes to_. `slide-in-top` enters from above; `slide-out-top` exits upward.
+
+### Controls
+
+| Utility                                                  | Sets                        |
+| -------------------------------------------------------- | --------------------------- |
+| `fill-mode-{none,forwards,backwards,both}`               | `animation-fill-mode`       |
+| `direction-{normal,reverse,alternate,alternate-reverse}` | `animation-direction`       |
+| `repeat-{n,infinite}`                                    | `animation-iteration-count` |
+| `play-state-{running,paused}`                            | `animation-play-state`      |
+
+### Reduced motion
+
+`animate-in` and `animate-out` respect `prefers-reduced-motion: reduce` automatically — animation is disabled for users who ask for less motion.
+
+---
+
+## Variants
+
+Semantic state variants that match native, `data-*`, and ARIA attributes at once — so they work across headless UI libraries (Radix, Ark, React Aria, Base UI) without configuration.
+
+```html
+<div data-state="open" class="is-open:opacity-100 is-closed:opacity-0">…</div>
+<li aria-selected="true" class="selected:bg-fig-100">…</li>
+```
+
+Variants whose name matches a native Tailwind variant are prefixed with `is-` (so they **extend** rather than override the native one). The rest use plain names because no native variant exists.
+
+| Group       | Variants                                                       |
+| ----------- | -------------------------------------------------------------- |
+| Interaction | `is-disabled`, `dragging`                                      |
+| Disclosure  | `is-open`, `is-closed`                                         |
+| Selection   | `highlighted`, `selected`, `unchecked`, `pressed`, `on`, `off` |
+| Form        | `is-invalid`, `is-required`                                    |
+| Navigation  | `current-page`, `current-step`                                 |
+| Orientation | `horizontal`, `vertical`                                       |
+| Calendar    | `today`, `unavailable`, `range-start`, `range-end`             |
+| Theme       | `dark`                                                         |
+
+> `is-open` / `is-disabled` extend the native `open:` / `disabled:` to cover `data-*` and ARIA state on non-native elements. Use the native `open:` / `disabled:` for plain HTML; these for headless components.
+
+---
+
+## Easings
+
+22 easing tokens exposed via `@theme`, so they become `ease-*` utilities automatically and work with any transition or animation:
+
+```html
+<button class="transition ease-out-expo">…</button>
+<div class="animate-in fade-in ease-anticipate">…</div>
+```
+
+Available: `anticipate`, `quick-out`, `in-out`, `in-out-base`, and the `in`/`out`/`in-out` sets for `quad`, `cubic`, `quart`, `quint`, `expo`, and `circ` (e.g. `ease-in-quad`, `ease-out-expo`, `ease-in-out-circ`).
+
+> **Note:** tailugin redefines the native `ease-in-out` token with a refined curve. If you rely on Tailwind's default `ease-in-out`, be aware it is overridden.
+
+---
+
+## Preflight
+
+Optional typographic refinements layered on top of Tailwind's own Preflight (which still handles the reset). Adds automatic hyphenation, balanced headings, pretty paragraph wrapping, tabular numerals, and code ligatures.
+
+```css
+@import "tailwindcss";
+@import "tailugin/preflight";
+```
+
+It only adds what Preflight doesn't cover — no reset is duplicated. Unsupported properties are ignored by the browser without breaking layout.
+
+---
+
+## Granular imports
+
+Import only the modules — or sub-modules — you need:
+
+```css
+@import "tailugin/theme"; /* colors + easings */
+@import "tailugin/variants"; /* all variants */
+@import "tailugin/utilities"; /* all animations */
+@import "tailugin/preflight";
+
+/* Sub-modules */
+@import "tailugin/theme/colors";
+@import "tailugin/theme/easings";
+@import "tailugin/utilities/animate";
+@import "tailugin/variants/calendar";
+
+/* A single color palette */
+@import "tailugin/colors/fig";
+```
 
 ## License
 
-Tailugin is released under the MIT License. See [LICENSE](LICENSE) for details.
+[MIT](./LICENSE) © [meluiz](https://meluiz.com)
