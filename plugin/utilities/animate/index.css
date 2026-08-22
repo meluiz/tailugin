@@ -1,0 +1,92 @@
+@import "./blur.css";
+@import "./fade.css";
+@import "./slide.css";
+@import "./spin.css";
+@import "./zoom.css";
+
+/* animate-in: base enter animation; combine with fade/zoom/spin/slide modifiers */
+@utility animate-in {
+  animation-name: enter;
+  animation-duration: var(--tw-duration, 150ms);
+  animation-timing-function: var(--tw-ease, ease);
+  --tw-enter-opacity: initial;
+  --tw-enter-scale: initial;
+  --tw-enter-rotate: initial;
+  --tw-enter-translate-x: initial;
+  --tw-enter-translate-y: initial;
+  --tw-enter-blur: initial;
+}
+
+/* animate-out: base exit animation; combine with fade/zoom/spin/slide modifiers */
+@utility animate-out {
+  animation-name: exit;
+  animation-duration: var(--tw-duration, 150ms);
+  animation-timing-function: var(--tw-ease, ease);
+  --tw-exit-opacity: initial;
+  --tw-exit-scale: initial;
+  --tw-exit-rotate: initial;
+  --tw-exit-translate-x: initial;
+  --tw-exit-translate-y: initial;
+  --tw-exit-blur: initial;
+}
+
+/* fill-mode-*: sets animation-fill-mode */
+@utility fill-mode-* {
+  animation-fill-mode: --value("none", "forwards", "backwards", "both");
+}
+
+/* direction-*: sets animation-direction */
+@utility direction-* {
+  animation-direction: --value(
+    "normal",
+    "reverse",
+    "alternate",
+    "alternate-reverse"
+  );
+}
+
+/* repeat-*: sets animation-iteration-count */
+@utility repeat-* {
+  animation-iteration-count: --value(integer, [integer], "infinite");
+}
+
+/* play-state-*: sets animation-play-state */
+@utility play-state-* {
+  animation-play-state: --value("running", "paused");
+}
+
+@keyframes enter {
+  from {
+    opacity: var(--tw-enter-opacity, 1);
+    transform: translate3d(
+        var(--tw-enter-translate-x, 0),
+        var(--tw-enter-translate-y, 0),
+        0
+      )
+      scale3d(var(--tw-enter-scale, 1), var(--tw-enter-scale, 1), 1)
+      rotate(var(--tw-enter-rotate, 0));
+    filter: blur(var(--tw-enter-blur, 0));
+  }
+}
+
+@keyframes exit {
+  to {
+    opacity: var(--tw-exit-opacity, 1);
+    transform: translate3d(
+        var(--tw-exit-translate-x, 0),
+        var(--tw-exit-translate-y, 0),
+        0
+      )
+      scale3d(var(--tw-exit-scale, 1), var(--tw-exit-scale, 1), 1)
+      rotate(var(--tw-exit-rotate, 0));
+    filter: blur(var(--tw-exit-blur, 0));
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-in,
+  .animate-out {
+    animation: none;
+  }
+}

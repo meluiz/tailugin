@@ -1,0 +1,47 @@
+/* slide-in-top: enter from above (translateY −); requires a value — slide-in-top-<n> or [length] */
+@utility slide-in-top-* {
+  --tw-enter-translate-y: calc(--spacing(--value(integer)) * -1);
+  --tw-enter-translate-y: calc(--value([percentage], [length]) * -1);
+}
+
+/* slide-in-bottom: enter from below (translateY +); requires a value */
+@utility slide-in-bottom-* {
+  --tw-enter-translate-y: --spacing(--value(integer));
+  --tw-enter-translate-y: --value([percentage], [length]);
+}
+
+/* slide-in-left: enter from the left (translateX −); requires a value */
+@utility slide-in-left-* {
+  --tw-enter-translate-x: calc(--spacing(--value(integer)) * -1);
+  --tw-enter-translate-x: calc(--value([percentage], [length]) * -1);
+}
+
+/* slide-in-right: enter from the right (translateX +); requires a value */
+@utility slide-in-right-* {
+  --tw-enter-translate-x: --spacing(--value(integer));
+  --tw-enter-translate-x: --value([percentage], [length]);
+}
+
+/* slide-out-top: exit upward (translateY −); requires a value */
+@utility slide-out-top-* {
+  --tw-exit-translate-y: calc(--spacing(--value(integer)) * -1);
+  --tw-exit-translate-y: calc(--value([percentage], [length]) * -1);
+}
+
+/* slide-out-bottom: exit downward (translateY +); requires a value */
+@utility slide-out-bottom-* {
+  --tw-exit-translate-y: --spacing(--value(integer));
+  --tw-exit-translate-y: --value([percentage], [length]);
+}
+
+/* slide-out-left: exit to the left (translateX −); requires a value */
+@utility slide-out-left-* {
+  --tw-exit-translate-x: calc(--spacing(--value(integer)) * -1);
+  --tw-exit-translate-x: calc(--value([percentage], [length]) * -1);
+}
+
+/* slide-out-right: exit to the right (translateX +); requires a value */
+@utility slide-out-right-* {
+  --tw-exit-translate-x: --spacing(--value(integer));
+  --tw-exit-translate-x: --value([percentage], [length]);
+}

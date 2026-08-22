@@ -1,0 +1,19 @@
+/* blur-in: enter blur origin; defaults to 4px — set with blur-in-<px> or [length] */
+@utility blur-in {
+  --tw-enter-blur: 4px;
+}
+
+@utility blur-in-* {
+  --tw-enter-blur: calc(--value(integer) * 1px);
+  --tw-enter-blur: --value([length]);
+}
+
+/* blur-out: exit blur target; defaults to 4px — set with blur-out-<px> or [length] */
+@utility blur-out {
+  --tw-exit-blur: 4px;
+}
+
+@utility blur-out-* {
+  --tw-exit-blur: calc(--value(integer) * 1px);
+  --tw-exit-blur: --value([length]);
+}

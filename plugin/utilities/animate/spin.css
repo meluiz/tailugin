@@ -1,0 +1,21 @@
+/* spin-in: enter rotation origin; requires a value — spin-in-<deg> or [angle] */
+@utility spin-in-* {
+  --tw-enter-rotate: calc(--value(integer) * 1deg);
+  --tw-enter-rotate: --value([angle]);
+}
+
+@utility -spin-in-* {
+  --tw-enter-rotate: calc(--value(integer) * -1deg);
+  --tw-enter-rotate: calc(--value([angle]) * -1);
+}
+
+/* spin-out: exit rotation target; requires a value — spin-out-<deg> or [angle] */
+@utility spin-out-* {
+  --tw-exit-rotate: calc(--value(integer) * 1deg);
+  --tw-exit-rotate: --value([angle]);
+}
+
+@utility -spin-out-* {
+  --tw-exit-rotate: calc(--value(integer) * -1deg);
+  --tw-exit-rotate: calc(--value([angle]) * -1);
+}

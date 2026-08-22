@@ -1,9 +1,0 @@
-@utility zoom-in-* {
-  --tw-enter-scale: calc(--value(integer) * 1%);
-  --tw-enter-scale: --value(--zoom-in-*, [percentage]);
-}
-
-@utility zoom-out-* {
-  --tw-leave-scale: calc(--value(integer) * 1%);
-  --tw-leave-scale: --value(--zoom-out-*, [percentage]);
-}

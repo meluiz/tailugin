@@ -1,0 +1,19 @@
+/* zoom-in: enter scale origin; defaults to 95% — set with zoom-in-<0-100> or [number] */
+@utility zoom-in {
+  --tw-enter-scale: 0.95;
+}
+
+@utility zoom-in-* {
+  --tw-enter-scale: calc(--value(integer) / 100);
+  --tw-enter-scale: --value([number]);
+}
+
+/* zoom-out: exit scale target; defaults to 95% — set with zoom-out-<0-100> or [number] */
+@utility zoom-out {
+  --tw-exit-scale: 0.95;
+}
+
+@utility zoom-out-* {
+  --tw-exit-scale: calc(--value(integer) / 100);
+  --tw-exit-scale: --value([number]);
+}

@@ -1,0 +1,19 @@
+/* fade-in: enter opacity origin; defaults to 0 — set with fade-in-<0-100> or [%] */
+@utility fade-in {
+  --tw-enter-opacity: 0;
+}
+
+@utility fade-in-* {
+  --tw-enter-opacity: calc(--value(integer) * 1%);
+  --tw-enter-opacity: --value([percentage]);
+}
+
+/* fade-out: exit opacity target; defaults to 0 — set with fade-out-<0-100> or [%] */
+@utility fade-out {
+  --tw-exit-opacity: 0;
+}
+
+@utility fade-out-* {
+  --tw-exit-opacity: calc(--value(integer) * 1%);
+  --tw-exit-opacity: --value([percentage]);
+}
