@@ -1,114 +1,139 @@
 {
-	"name": "tailugin",
-	"description": "A collection of Tailwind CSS V4-ready utilities.",
-	"version": "0.2.1",
-	"author": {
-		"name": "meluiz",
-		"email": "me@meluiz.com",
-		"url": "https://meluiz.com"
-	},
-	"files": [
-		"plugins"
-	],
-	"publishConfig": {
-		"access": "public"
-	},
-	"homepage": "https://github.com/meluiz/tailugin",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/meluiz/tailugin.git"
-	},
-	"bugs": {
-		"url": "https://github.com/meluiz/tailugin/issues"
-	},
-	"keywords": [
-		"css",
-		"plugin",
-		"tailugin",
-		"tailwind",
-		"tailwindcss",
-		"transition",
-		"animate",
-		"animatecss",
-		"animate.css",
-		"conditions",
-		"condition",
-		"conditioncss",
-		"condition.css",
-		"colors",
-		"color-palette",
-		"oklch",
-		"easings",
-		"easing",
-		"easingcss",
-		"easing.css"
-	],
-	"main": "./plugins/main.css",
-	"unpkg": "./plugins/main.css",
-	"jsdelivr": "./plugins/main.css",
-	"exports": {
-		".": {
-			"default": "./plugins/main.css"
-		},
-		"./animate.css": {
-			"default": "./plugins/animate/main.css"
-		},
-		"./colors.css": {
-			"default": "./plugins/colors/main.css"
-		},
-		"./colors/cactus.css": {
-			"default": "./plugins/colors/cactus.css"
-		},
-		"./colors/clay.css": {
-			"default": "./plugins/colors/clay.css"
-		},
-		"./colors/dusk.css": {
-			"default": "./plugins/colors/dusk.css"
-		},
-		"./colors/fig.css": {
-			"default": "./plugins/colors/fig.css"
-		},
-		"./colors/heather.css": {
-			"default": "./plugins/colors/heather.css"
-		},
-		"./colors/kraft.css": {
-			"default": "./plugins/colors/kraft.css"
-		},
-		"./colors/manila.css": {
-			"default": "./plugins/colors/manila.css"
-		},
-		"./colors/manilla.css": {
-			"default": "./plugins/colors/manilla.css"
-		},
-		"./colors/olive.css": {
-			"default": "./plugins/colors/olive.css"
-		},
-		"./colors/silt.css": {
-			"default": "./plugins/colors/silt.css"
-		},
-		"./conditions.css": {
-			"default": "./plugins/conditions/main.css"
-		},
-		"./conditions/calendar.css": {
-			"default": "./plugins/conditions/calendar.css"
-		},
-		"./conditions/interaction.css": {
-			"default": "./plugins/conditions/interaction.css"
-		},
-		"./conditions/layout.css": {
-			"default": "./plugins/conditions/layout.css"
-		},
-		"./conditions/state.css": {
-			"default": "./plugins/conditions/state.css"
-		},
-		"./conditions/theme.css": {
-			"default": "./plugins/conditions/theme.css"
-		},
-		"./easings.css": {
-			"default": "./plugins/easings/main.css"
-		}
-	},
-	"peerDependencies": {
-		"tailwindcss": "^4"
-	}
+  "name": "tailugin",
+  "version": "1.0.0",
+  "description": "A collection of Tailwind CSS v4 utilities — enter/exit animations, semantic state variants, OKLCH color palettes, and easing tokens.",
+  "author": {
+    "name": "meluiz",
+    "email": "me@meluiz.com",
+    "url": "https://meluiz.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/meluiz/tailugin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meluiz/tailugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/meluiz/tailugin/issues"
+  },
+  "keywords": [
+    "css",
+    "tailwind",
+    "tailwindcss",
+    "tailwindcss-plugin",
+    "tailwind-v4",
+    "animate",
+    "animation",
+    "enter-exit",
+    "transition",
+    "variants",
+    "custom-variant",
+    "data-attributes",
+    "aria",
+    "colors",
+    "color-palette",
+    "oklch",
+    "easing",
+    "easings",
+    "preflight"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "files": [
+    "plugin"
+  ],
+  "main": "./plugin/index.css",
+  "style": "./plugin/index.css",
+  "unpkg": "./plugin/index.css",
+  "jsdelivr": "./plugin/index.css",
+  "exports": {
+    ".": {
+      "default": "./plugin/index.css"
+    },
+    "./theme": {
+      "default": "./plugin/theme/index.css"
+    },
+    "./variants": {
+      "default": "./plugin/variants/index.css"
+    },
+    "./utilities": {
+      "default": "./plugin/utilities/index.css"
+    },
+    "./preflight": {
+      "default": "./plugin/preflight.css"
+    },
+    "./theme/colors": {
+      "default": "./plugin/theme/colors/index.css"
+    },
+    "./theme/easings": {
+      "default": "./plugin/theme/easings.css"
+    },
+    "./colors/cactus": {
+      "default": "./plugin/theme/colors/cactus.css"
+    },
+    "./colors/clay": {
+      "default": "./plugin/theme/colors/clay.css"
+    },
+    "./colors/dusk": {
+      "default": "./plugin/theme/colors/dusk.css"
+    },
+    "./colors/fig": {
+      "default": "./plugin/theme/colors/fig.css"
+    },
+    "./colors/heather": {
+      "default": "./plugin/theme/colors/heather.css"
+    },
+    "./colors/kraft": {
+      "default": "./plugin/theme/colors/kraft.css"
+    },
+    "./colors/lagoon": {
+      "default": "./plugin/theme/colors/lagoon.css"
+    },
+    "./colors/manila": {
+      "default": "./plugin/theme/colors/manila.css"
+    },
+    "./colors/moss": {
+      "default": "./plugin/theme/colors/moss.css"
+    },
+    "./colors/orchid": {
+      "default": "./plugin/theme/colors/orchid.css"
+    },
+    "./colors/silt": {
+      "default": "./plugin/theme/colors/silt.css"
+    },
+    "./variants/calendar": {
+      "default": "./plugin/variants/calendar.css"
+    },
+    "./variants/dark": {
+      "default": "./plugin/variants/dark.css"
+    },
+    "./variants/disclosure": {
+      "default": "./plugin/variants/disclosure.css"
+    },
+    "./variants/form": {
+      "default": "./plugin/variants/form.css"
+    },
+    "./variants/interaction": {
+      "default": "./plugin/variants/interaction.css"
+    },
+    "./variants/navigation": {
+      "default": "./plugin/variants/navigation.css"
+    },
+    "./variants/orientation": {
+      "default": "./plugin/variants/orientation.css"
+    },
+    "./variants/selection": {
+      "default": "./plugin/variants/selection.css"
+    },
+    "./utilities/animate": {
+      "default": "./plugin/utilities/animate/index.css"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^4"
+  }
 }
