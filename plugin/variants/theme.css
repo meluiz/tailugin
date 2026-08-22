@@ -1,0 +1,2 @@
+/* dark: matches the `.dark` scope, opting out of nested `.light` islands — set by the app */
+@custom-variant dark (&:where(.dark, .dark *):not(:where(.light, .light *)));

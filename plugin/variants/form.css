@@ -1,0 +1,5 @@
+/* is-invalid: matches an invalid field via data/aria on any element — emitted by Ark, React Aria, Base UI */
+@custom-variant is-invalid (&:is([data-invalid], [data-invalid="true"], [aria-invalid="true"]));
+
+/* is-required: matches a required field via data/aria on any element — emitted by Ark, React Aria, Base UI */
+@custom-variant is-required (&:is([data-required], [data-required="true"], [aria-required="true"]));

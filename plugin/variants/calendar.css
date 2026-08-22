@@ -1,0 +1,11 @@
+/* today: matches the current date cell — emitted by Radix, Ark */
+@custom-variant today (&:is([data-today], [aria-current="date"]));
+
+/* unavailable: matches a date that cannot be selected — emitted by React Aria, Ark */
+@custom-variant unavailable (&:is([data-unavailable], [data-unavailable="true"]));
+
+/* range-start: matches the start of a selected date range — emitted by Radix, Ark, React Aria (data-selection-start) */
+@custom-variant range-start (&:is([data-range-start], [data-selection-start]));
+
+/* range-end: matches the end of a selected date range — emitted by Radix, Ark, React Aria (data-selection-end) */
+@custom-variant range-end (&:is([data-range-end], [data-selection-end]));

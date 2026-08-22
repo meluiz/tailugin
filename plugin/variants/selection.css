@@ -1,0 +1,17 @@
+/* highlighted: matches the active/focused item during keyboard/pointer navigation — emitted by Radix, Ark, Base UI */
+@custom-variant highlighted (&:is([data-highlighted], [data-highlighted="true"]));
+
+/* selected: matches an item chosen by the user — emitted by React Aria, Base UI, Radix (aria-selected) */
+@custom-variant selected (&:is([data-selected], [data-selected="true"], [aria-selected="true"]));
+
+/* unchecked: matches a checkbox or radio in the off state — emitted by Radix, Ark */
+@custom-variant unchecked (&:is([data-state="unchecked"], [aria-checked="false"], [data-checked="false"]));
+
+/* pressed: matches a toggle button in the pressed state — emitted by React Aria (data-pressed), aria-pressed */
+@custom-variant pressed (&:is([data-pressed], [data-pressed="true"], [aria-pressed="true"]));
+
+/* on: matches a switch in the on state — emitted by Ark, Zag */
+@custom-variant on (&:is([data-state="on"], [role="switch"][aria-checked="true"]));
+
+/* off: matches a switch in the off state — emitted by Ark, Zag */
+@custom-variant off (&:is([data-state="off"], [role="switch"][aria-checked="false"]));

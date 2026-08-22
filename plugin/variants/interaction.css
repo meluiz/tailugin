@@ -1,0 +1,5 @@
+/* is-disabled: matches data/aria disabled state on any element — emitted by Radix, Ark, React Aria, Base UI */
+@custom-variant is-disabled (&:is([data-disabled], [data-disabled="true"], [aria-disabled="true"]));
+
+/* dragging: matches an element being dragged — emitted by Radix, React Aria */
+@custom-variant dragging (&:is([data-dragging], [data-dragging="true"], [aria-grabbed="true"]));

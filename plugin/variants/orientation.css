@@ -1,3 +1,5 @@
+/* horizontal: matches a widget laid out on the horizontal axis — emitted by Radix, Ark */
 @custom-variant horizontal (&:is([data-orientation="horizontal"], [aria-orientation="horizontal"]));
+
+/* vertical: matches a widget laid out on the vertical axis — emitted by Radix, Ark */
 @custom-variant vertical (&:is([data-orientation="vertical"], [aria-orientation="vertical"]));
-@custom-variant topmost (&:is([data-topmost]));

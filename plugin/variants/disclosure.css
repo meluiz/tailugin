@@ -1,0 +1,5 @@
+/* is-open: matches open disclosure state via data/aria — emitted by Radix, Ark, Base UI */
+@custom-variant is-open (&:is([data-open], [data-open="true"], [data-state="open"], [aria-expanded="true"]));
+
+/* is-closed: matches closed disclosure state via data/aria — emitted by Radix, Ark, Base UI */
+@custom-variant is-closed (&:is([data-closed], [data-closed="true"], [data-state="closed"], [aria-expanded="false"]));

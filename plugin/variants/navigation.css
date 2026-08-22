@@ -1,0 +1,5 @@
+/* current-page: matches the active link in a navigation — emitted by Radix, Ark */
+@custom-variant current-page (&:is([aria-current="page"], [data-current="page"]));
+
+/* current-step: matches the active step in a stepper — emitted by Ark */
+@custom-variant current-step (&:is([aria-current="step"], [data-current="step"]));
